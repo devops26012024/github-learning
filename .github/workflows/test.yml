@@ -2,8 +2,6 @@ name: Test Project
 
 on: 
   push:
-    branches:
-      - main
 
 jobs:
   test:
