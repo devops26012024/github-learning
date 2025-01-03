@@ -20,7 +20,8 @@ jobs:
 
       - name: Verify package-lock.json exists
         run: |
-          if [ ! -f "package-lock.json" ]; then
+          if [ ! -f "package-lock.json" ]; 
+          then
             echo "package-lock.json not found. Run 'npm install' locally to generate it and commit it to your repository.";
             exit 1;
           fi
