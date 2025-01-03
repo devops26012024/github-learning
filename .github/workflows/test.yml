@@ -3,7 +3,7 @@ name: Python Test
 on:
   pull_request:
     types:
-      - opened:
+      - opened
   workflow_dispatch:      
 
 jobs:
