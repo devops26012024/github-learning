@@ -1,11 +1,13 @@
 name: Python Test
 
 on:
-  push:
-  
+  pull_request:
+    types:
+      - opened:
+  workflow_dispatch:      
 
 jobs:
-  test:
+  python:
     runs-on: ubuntu-latest
 
     steps:
