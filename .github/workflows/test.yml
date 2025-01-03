@@ -1,16 +1,32 @@
-name: test project 
-on: push 
+name: Test Project
+
+on: 
+  push:
+    branches:
+      - main
+
 jobs:
   test:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Get code
+      - name: Checkout code
         uses: actions/checkout@v4
-      - name: Install NodeJS
+
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Install dependencies 
+
+      - name: Verify package-lock.json exists
+        run: |
+          if [ ! -f "package-lock.json" ]; then
+            echo "package-lock.json not found. Run 'npm install' locally to generate it and commit it to your repository.";
+            exit 1;
+          fi
+
+      - name: Install dependencies
         run: npm ci
+
       - name: Run tests
-        run: npm test 
+        run: npm test
